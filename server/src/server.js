@@ -1,5 +1,6 @@
 const express = require("express");
 const prisma = require("../config/prisma");
+const userRoutes = require("./routes/v1/userRoutes");
 const app = express();
 
 app.use(express.json());
@@ -15,6 +16,8 @@ prisma
       err
     );
   });
+
+app.use("/api/v1/users", userRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
