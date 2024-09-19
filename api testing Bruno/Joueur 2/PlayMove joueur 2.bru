@@ -1,0 +1,22 @@
+meta {
+  name: PlayMove joueur 2
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:3000/api/v1/games/25/move
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsInVzZXJuYW1lIjoidXNlcjIiLCJpYXQiOjE3MjY3NDYxNzN9.klj4vizVQ455XGlpL3Gw91AMvSXgv5p0EXGFAqEcSTk
+}
+
+body:json {
+  {
+    "playerId": 11,
+    "position": 2
+  }
+}

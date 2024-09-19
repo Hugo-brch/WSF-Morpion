@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,9 +7,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// stocke les informations utilisateurs
 model User {
   id       Int    @id @default(autoincrement())
   username String @unique
   email    String @unique
   password String
+  games    Game[] @relation("Player1Games")
+  games2   Game[] @relation("Player2Games")
+}
+
+// table qui permet de stocker les parties qui permet de gerer les parties
+model Game {
+  id        Int      @id @default(autoincrement())
+  player1   User     @relation("Player1Games", fields: [player1Id], references: [id])
+  player1Id Int
+  player2   User     @relation("Player2Games", fields: [player2Id], references: [id])
+  player2Id Int
+  board     String   @default("         ")
+  status    String   @default("en cours")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

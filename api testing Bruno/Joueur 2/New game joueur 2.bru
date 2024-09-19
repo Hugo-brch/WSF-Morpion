@@ -1,0 +1,22 @@
+meta {
+  name: New game joueur 2
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3000/api/v1/games
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsInVzZXJuYW1lIjoidXNlcjIiLCJpYXQiOjE3MjY3NDYxNzN9.klj4vizVQ455XGlpL3Gw91AMvSXgv5p0EXGFAqEcSTk
+}
+
+body:json {
+  {
+    "player1Id": 9,
+    "player2Id": 10
+  }
+}
