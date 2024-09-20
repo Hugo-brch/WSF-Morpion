@@ -13,10 +13,7 @@ prisma
     console.log("Database OK");
   })
   .catch((err) => {
-    console.error(
-      "Veuillez verifier le champ DATABASE_URL dans le fichier .env",
-      err
-    );
+    console.error("Please check the DATABASE_URL field in the .env file", err);
   });
 
 // route gestion des utilisateurs
