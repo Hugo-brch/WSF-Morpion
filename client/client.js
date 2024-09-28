@@ -32,6 +32,7 @@ function displayBoard(board) {
 async function register() {
   const username = await askQuestion("Enter username: ");
   const password = await askQuestion("Enter password: ");
+  const email = await askQuestion("Enter email: ");
 
   try {
     const response = await axios.post(
@@ -39,6 +40,7 @@ async function register() {
       {
         username: username,
         password: password,
+        email: email,
       }
     );
     console.log("User registered successfully:", response.data);
